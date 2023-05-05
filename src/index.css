@@ -1,13 +1,251 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+html{
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: Montserrat, sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*,
+*::after,
+*::before{
+  box-sizing: inherit;
+}
+
+body {
+  margin: 1rem;
+  padding: 10px;
+  background: rgba(180, 48, 132, 0.3); 
+  /* background-image: url(./assets/backgroundShopping.jpg); */
+  color: #611919;
+  min-height: 100vh;
+  flex-direction: column;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+hr {
+  margin: 2rem auto;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+  }
+
+  button,
+  input[type="submit"],
+  input[type="reset"] {
+    border: thin solid #444;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem 0 0;
+    display: inline-block;
+    background-color: #f3d0e0;
+    color: #444;
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 1;
+    text-transform: none;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="textarea"] {
+    border: thin solid #dedede;
+    border-radius: 0.25rem;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    outline: none;
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    line-height: 1;
+    background-color: #ebf2f4;
+  }
+
+.box{
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: 0 0 1rem #00000025 inset;
+}
+
+.grid-responsive{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+hr {
+  margin: 2rem auto;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+}
+th,
+td {
+  text-align: center;
+  padding: 0.5rem;
+  border-bottom: thin solid #dedede;
+}
+
+tr:hover{
+  opacity: 0.6;
+}
+
+@media screen and (min-width: 1024px) {
+  .grid-1-2 {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    align-items: start;
+    gap: 1rem;
+  }
+  button{
+    height: auto;
+    font-size: 14px;
+  }
+
+  tbody{
+    font-size: 12px;
+  }
+
+}
+
+input:invalid {
+  border-color: rgb(203, 22, 22);
+  box-shadow: 0 0 5px rgb(38, 44, 46);
+  animation: alert 300ms;
+}
+
+@keyframes alert {
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+ 
+h3 {
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 100;
+  color: var(--primary-color);
+}
+
+h2{
+  text-align: center;
+  color: var(--primary-color);
+  max-width: 100%;
+  font-size: 1.5rem;
+
+  display: block;
+  margin: auto;
+  white-space: nowrap;
+  
+  max-width: 100%;
+  width: 50ch;
+
+  animation: typing 3s steps(50), blink 0.5s infinite step-end alternate;
+  overflow: hidden;
+
+}
+
+.header {
+  display:flex;
+  justify-content: space-between;
+}
+header {
+  background-color: rgba(180, 48, 132, 0.4);;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  border: 1px solid #cccccc;
+  padding: 1.5vh;
+  font-size: 1.5rem;
+  
+}
+
+nav {
+  display:flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+nav a{
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.active{
+  font-weight: bold;
+  color: #61dafb;
+}
+
+h1 {
+  display:inline-flex;
+}
+.main-title{
+  margin: auto;
+  white-space: nowrap;
+  border-right: 4px solid;
+  text-align: center;
+  color: var(--primary-color);
+  max-width: 100%;
+  font-size: 2.5rem;
+  width: 16ch;
+
+  animation: typing 2s steps(16), blink 0.5s infinite step-end alternate;
+  overflow: hidden;
+}
+
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+h2:hover,
+.main-title:hover{
+  opacity: 0.6;
+}
+.msj{
+  padding: 5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  background-color: red
+}
+
+
+img{
+max-width: 100%;
+height: auto;
+}
+
+p {
+text-align: justify;
+font-size: 1rem;
+overflow: auto;
+color: var(--primary-color);
+}
+.darkTheme{
+background-color: #1f1f1f;
+color: #f3d0e0;
 }

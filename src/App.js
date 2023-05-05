@@ -1,24 +1,16 @@
-import logo from './logo.svg';
+//npm install react-router-dom
+//npm install @splinetool/react-spline @splinetool/runtime
+//npm install axios
 import './App.css';
+import AppRouter from './components/AppRouter';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div >
+    <AppRouter/>
+    <br/><br/>
+    <footer>App Shopping Cart</footer>
+   </div>
   );
 }
 

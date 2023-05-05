@@ -1,0 +1,69 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Product 01",
+      "category": "home",
+      "description": "Product 01 description",
+      "price": 100,
+      "img": {
+        "src": "https://placekitten.com/80/60",
+        "alt": "cat"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Product 02",
+      "category": "cosmetic",
+      "description": "Product 02 description",
+      "price": 200,
+      "img": {
+        "src": "https://placekitten.com/80/60",
+        "alt": "cat"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Product 03",
+      "category": "cosmetic",
+      "description": "Product 03 description",
+      "price": 300,
+      "img": {
+        "src": "https://placekitten.com/80/60",
+        "alt": "cat"
+      }
+    },
+    {
+      "name": "Product 04",
+      "category": "cosmetic",
+      "description": "Product 04 description",
+      "price": 400,
+      "img": {
+        "src": "https://placekitten.com/80/60",
+        "alt": "cat"
+      },
+      "id": 4
+    },
+    {
+      "name": "Product 05",
+      "category": "cosmetic",
+      "description": "Product 05 description",
+      "price": 500,
+      "img": {
+        "src": "https://placekitten.com/80/60",
+        "alt": "cat"
+      }
+    },
+    {
+      "id": 5,
+      "name": "pro 6",
+      "category": "cosmetic",
+      "description": "Product 06 description",
+      "price": "600",
+      "img": {
+        "src": "https://placekitten.com/80/60",
+        "alt": "cat"
+      }
+    }
+  ]
+}
