@@ -3,14 +3,16 @@ import { useReducer, useEffect, useState } from "react";
 import { HelpHttp } from "../../helpers/helpHttp";
 import { TYPES } from "../../actionsReducer/shoppingActions";
 import { shoppingInitialState, shoppingReducer } from "../../functionReducer/shoppingReducer";
-import CrudTableRow from "../CrudTableRow";
+import Loader from "../Loader";
+import Message from "../Message";
+
 function CatalogueProducts() {
 
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
     const [state, dispatch] = useReducer(shoppingReducer, shoppingInitialState);
-    let {products, cart} = state; //from shoppingInitialState that gives value to STATE. Acceses state.products, state.cart
+    let {products} = state; //from shoppingInitialState that gives value to STATE. Acceses state.products, state.cart
     
     const URL = "http://localhost:5000/products"
     let {get} = HelpHttp();
@@ -28,7 +30,6 @@ function CatalogueProducts() {
             console.log(resJson)
           } 
           setLoading(false)
-          //console.log(json)
           })
     }
  
@@ -39,6 +40,10 @@ function CatalogueProducts() {
         return ( 
         <div>
             <h2>CATALOGUE OF PRODUCTS</h2>
+            <br/>
+            {loading && <Loader/>}
+            {error && <Message msj={ `Error ${error.status}: ${error.statusText}`}  bgColor="#dc3545" />}
+                   
             <table>
             <thead>
                 <tr>
