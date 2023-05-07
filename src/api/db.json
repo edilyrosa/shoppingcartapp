@@ -34,27 +34,6 @@
       }
     },
     {
-      "name": "Product 04",
-      "category": "cosmetic",
-      "description": "Product 04 description",
-      "price": 400,
-      "img": {
-        "src": "https://placekitten.com/80/60",
-        "alt": "cat"
-      },
-      "id": 4
-    },
-    {
-      "name": "Product 05",
-      "category": "cosmetic",
-      "description": "Product 05 description",
-      "price": 500,
-      "img": {
-        "src": "https://placekitten.com/80/60",
-        "alt": "cat"
-      }
-    },
-    {
       "id": 5,
       "name": "pro 6",
       "category": "cosmetic",
@@ -82,6 +61,17 @@
       "category": "food",
       "description": "Product x description",
       "price": "44.59",
+      "img": {
+        "src": "https://placekitten.com/80/60",
+        "alt": "cat"
+      }
+    },
+    {
+      "id": 8,
+      "name": "ropa",
+      "category": "clothes",
+      "description": "cute",
+      "price": "100.01",
       "img": {
         "src": "https://placekitten.com/80/60",
         "alt": "cat"

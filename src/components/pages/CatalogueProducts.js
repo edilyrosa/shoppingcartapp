@@ -47,11 +47,13 @@ function CatalogueProducts() {
             <table>
             <thead>
                 <tr>
+                    <th>id</th>
                     <th>Name</th>
                     <th>Category</th>
                     <th>description</th>
                     <th>price</th>
                     <th>img</th>
+                   
                 </tr>
             </thead>
 
@@ -61,6 +63,7 @@ function CatalogueProducts() {
                 products.length > 0 
                 ? products.map((e,index) => {
                     return (<tr>
+                            <td>{e.id}</td>
                             <td>{e.name}</td>
                             <td>{e.category}</td>
                             <td>{e.description}</td>

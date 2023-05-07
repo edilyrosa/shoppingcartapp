@@ -77,23 +77,25 @@ function CrudApi() {
     }
 
     return ( 
-     <>
-        <div>
-            <h2>POST, UPDATE OR DELETE THE PRODUCTS</h2>
-            <article className='grid-1-2'> 
-            <CrudForm 
-            createData={createData}
-            updaData={updaData}
-            dataToEdict={dataToEdict} 
-            setDataToEdict={setDataToEdict}/>
-            
+      <div className='grid-1-2'> 
+        <section>
+            <br/>
+            <h2>CRUD PRODUCTS</h2>
+            <article className="box grid-responsive">
+              <CrudForm 
+              createData={createData}
+              updaData={updaData}
+              dataToEdict={dataToEdict} 
+              setDataToEdict={setDataToEdict}/>
+             </article>
+        </section>
+        <section>
             {loading && <Loader/>}
             {error && <Message msj={ `Error ${error.status}: ${error.statusText}`}  bgColor="#dc3545" />}
             {db && <CrudTable data={db} setDataToEdict={setDataToEdict} deleteData={deleteData} />}
-            </article>
-        </div>
+        </section>
            
-      </>
+      </div>
       
      );
 }

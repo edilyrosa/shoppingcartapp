@@ -2,7 +2,9 @@ import CrudTableRow from './CrudTableRow';
 function CrudTable({data, setDataToEdict, deleteData}) {
     return ( 
         <div>
-        <h2>CATALOGUE</h2>
+            <br/>
+        <h2 >CATALOGUE</h2>
+        <div>
         <table>
             <thead>
                 <tr>
@@ -18,10 +20,10 @@ function CrudTable({data, setDataToEdict, deleteData}) {
 
             <tbody>
                 {
-                data.length > 0 
-                ? data.map((e,index) => 
-                <CrudTableRow key={index} register={e} setDataToEdict={setDataToEdict} deleteData={deleteData} /> ) 
-                :<tr> 
+                    data.length > 0 
+                    ? data.map((e,index) => 
+                    <CrudTableRow key={index} register={e} setDataToEdict={setDataToEdict} deleteData={deleteData} /> ) 
+                    :<tr> 
                     <td colSpan='5'> No data </td> 
                 </tr> 
                 }
@@ -29,6 +31,7 @@ function CrudTable({data, setDataToEdict, deleteData}) {
 
         </table>
         </div>
+                </div>
      );
 }
 
