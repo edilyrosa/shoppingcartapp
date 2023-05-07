@@ -1,15 +1,17 @@
 export const HelpHttp = () =>{
     
-    const customFerch = (endpoint, options) =>{
+    const customFerch = (endpoint, options = {}) =>{
         const defaultHeader = {
-            accept:"application/json"
+            accept:"application/json",
+            "content-type":"application/json"
         }
 
         const controller = new AbortController()
         options.signal = controller.signal;
 
         options.method = options.method || "GET"
-        options.headers = options.headers 
+        options.headers = options.headers
+
         ? {...defaultHeader, ...options.headers}//Mix between options coming & the default.
         : defaultHeader
 

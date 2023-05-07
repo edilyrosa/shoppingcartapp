@@ -25,7 +25,7 @@
     {
       "id": 3,
       "name": "Product 03",
-      "category": "cosmetic",
+      "category": "food",
       "description": "Product 03 description",
       "price": 300,
       "img": {
@@ -60,6 +60,28 @@
       "category": "cosmetic",
       "description": "Product 06 description",
       "price": "600",
+      "img": {
+        "src": "https://placekitten.com/80/60",
+        "alt": "cat"
+      }
+    },
+    {
+      "id": 6,
+      "name": "test 2",
+      "category": "test 2",
+      "description": "Product 04 description",
+      "price": "23",
+      "img": {
+        "src": "https://placekitten.com/80/60",
+        "alt": "cat"
+      }
+    },
+    {
+      "id": 7,
+      "name": "PEPSI",
+      "category": "food",
+      "description": "Product x description",
+      "price": "44.59",
       "img": {
         "src": "https://placekitten.com/80/60",
         "alt": "cat"

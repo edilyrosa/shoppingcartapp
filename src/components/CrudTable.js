@@ -20,7 +20,7 @@ function CrudTable({data, setDataToEdict, deleteData}) {
                 {
                 data.length > 0 
                 ? data.map((e,index) => 
-                <CrudTableRow key={index} register={e} setDataToEdict={setDataToEdict} deleteData={deleteData}/> ) 
+                <CrudTableRow key={index} register={e} setDataToEdict={setDataToEdict} deleteData={deleteData} /> ) 
                 :<tr> 
                     <td colSpan='5'> No data </td> 
                 </tr> 

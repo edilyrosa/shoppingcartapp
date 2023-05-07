@@ -74,14 +74,16 @@ const [form, setForm] = useState(initialFrom);
                 required
                 />
                 <br/>
-                <input 
-                type="number" 
-                placeholder="Price" 
-                name="price"
-                value={form.price}
-                onChange={handleChange}
-                required
-                />
+                <label>Admit two decimals e.g. 23.01
+                    <input 
+                    type="number" 
+                    step="0.01"
+                    name="price"
+                    value={form.price}
+                    onChange={handleChange}
+                    required
+                    />
+                </label>
                 {/* <br/>
                 <input type="file" name="img" value={form.img.src} onChange={handleImg}/> 
                 <br/><br/>   */}

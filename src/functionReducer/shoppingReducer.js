@@ -38,16 +38,12 @@ export function shoppingReducer({products, cart}, {type, payload}){
         case TYPES.SET_DATA: return { products:payload, cart:[]}//First loand and clear de cart.
         
 
-
-
         case TYPES.POST_DATA: {
             console.log('hola');
             console.log('PAYLOAD', payload);
             return {...{products, cart}, products:[...products, payload]}
             
         }
-
-
 
 
         case TYPES.NOT_DATA: { 

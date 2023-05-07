@@ -1,32 +1,52 @@
-import { useReducer, useEffect } from "react";
+import { useReducer, useEffect, useState } from "react";
 import { shoppingInitialState, shoppingReducer } from "../../functionReducer/shoppingReducer";
 import ProductItems from "./ProductItems";
 import CartItems from "./CartItems";
 import { TYPES } from "../../actionsReducer/shoppingActions";
-import { fetchData } from "../../helpers/fetchData";
 import Loader from "../Loader";
-
+import { HelpHttp } from "../../helpers/helpHttp";
+import Message from '../Message'
 
 function ShoppingCart() {
 
-    //const {data, loading} = useAxios()
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+
     const [state, dispatch] = useReducer(shoppingReducer, shoppingInitialState);
     let {products, cart} = state; //from shoppingInitialState that gives value to STATE. Acceses state.products, state.cart
     
     const URL = "http://localhost:5000/products"
-    useEffect(() => {
-        fetchData(URL, 'GET', dispatch);
-        console.log('montado');
-      }, [URL,dispatch]);
-    
+    let {get} = HelpHttp();
+    let options = {}
+
+    const getAllData = () => {
+        setLoading(true)
+        get(URL, options)//!GET
+        .then(resJson => {
+          if(!resJson.err){
+            dispatch({type:TYPES.SET_DATA, payload:resJson}); //STATE = get que se trae del endpoint
+          }else{
+            setError(resJson)
+            dispatch({type:TYPES.NO_DATA})
+            console.log(resJson)
+          } 
+          setLoading(false)
+          //console.log(json)
+          })
+    }
  
+      useEffect(() => { //A la Carga inicial del form & tabla
+        getAllData()
+        }, []);
+
 
     let total =0;
+    
     let totalPay = () => {
         cart.forEach(e => {
-            total += parseInt(e.price) * parseInt(e.quantity)
+            total += parseFloat(e.price) * parseInt(e.quantity)
         })
-        return total;
+        return total.toFixed(2);;
     }
 
     let totalToPay = totalPay();
@@ -41,32 +61,30 @@ function ShoppingCart() {
     }
     
     const clearCart = () => {
-        fetchData(URL, 'GET', dispatch);
-        console.log('limpieza');
+        getAllData();
     }
 
     return ( 
         <div className="grid-1-2">
             <section>
                 <br/>
-                <h2>Products</h2>
+                <h2>Our Products</h2>
                 <article className="box grid-responsive">
                     
-                    {
-                    products.length < 1 
-                    ? <Loader/>
-                    : products.map(e => <ProductItems key={e.id} data={e} addToCart={addToCart} />)
-                    }
+                    {loading && <Loader/>}
+                    {error && <Message msj={ `Error ${error.status}: ${error.statusText}`}  bgColor="#dc3545" />}
+                    {products.map(e => <ProductItems key={e.id} data={e} addToCart={addToCart} />)}
+                    
                 </article>
             </section>
                 
             <section>
                 <br/>
-                <h2>Cart</h2>
+                <h2>Your ShoppingCart</h2>
                 <article className="box">
                    { !(Object.keys(cart).length === 0)  && <button onClick={clearCart}>Clear Cart</button>}
                    { cart.map((e, index) => <CartItems key={index} data={e} deleteFromCart={deleteFromCart}/>) }
-                   { totalToPay > 0 && <><h3>Total to pay: $ {totalToPay}.00</h3> <button>Pay <i className="fa-solid fa-credit-card fa-beat fa-2xl"  style={{color:'#ee2bb0'}}></i> </button></> }
+                   { totalToPay > 0 && <><h3>Total to pay: $ {totalToPay}</h3> <button>Pay <i className="fa-solid fa-credit-card fa-beat fa-2xl"  style={{color:'#ee2bb0'}}></i> </button></> }
                    {(Object.keys(cart).length === 0)  && <> <h3>Add Products to the cart</h3> <i className="fa-sharp fa-solid fa-cart-plus fa-beat fa-2xl" style={{color:'#ee2bb0'}}></i> </> }
                    
                 </article>
