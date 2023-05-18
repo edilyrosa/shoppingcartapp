@@ -14,7 +14,7 @@ function ShoppingCart() {
 
     const [state, dispatch] = useReducer(shoppingReducer, shoppingInitialState);
     let {products, cart} = state; //from shoppingInitialState that gives value to STATE. Acceses state.products, state.cart
-    
+
     const URL = "http://localhost:5000/products"
     let {get} = HelpHttp();
     let options = {}
@@ -27,18 +27,16 @@ function ShoppingCart() {
             dispatch({type:TYPES.SET_DATA, payload:resJson}); //STATE = get que se trae del endpoint
           }else{
             setError(resJson)
-            dispatch({type:TYPES.NO_DATA})
+            dispatch({type:TYPES.NOT_DATA})
             console.log(resJson)
           } 
           setLoading(false)
-          //console.log(json)
           })
     }
  
       useEffect(() => { //A la Carga inicial del form & tabla
         getAllData()
         }, []);
-
 
     let total =0;
     
@@ -70,11 +68,10 @@ function ShoppingCart() {
                 <br/>
                 <h2>Our Products</h2>
                 <article className="box grid-responsive">
-                    
                     {loading && <Loader/>}
                     {error && <Message msj={ `Error ${error.status}: ${error.statusText}`}  bgColor="#dc3545" />}
-                    {products.map(e => <ProductItems key={e.id} data={e} addToCart={addToCart} />)}
-                    
+                    {(!error && !loading && !products) && <> <div style={{border:'thin solid gray', padding:'1rem' }}><h3>No data</h3></div></>}
+                    {products && products.map(e => <ProductItems key={e.id} data={e} addToCart={addToCart} />)}
                 </article>
             </section>
                 

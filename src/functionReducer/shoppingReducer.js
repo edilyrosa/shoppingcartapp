@@ -34,7 +34,7 @@ export function shoppingReducer({products, cart}, {type, payload}){
         
         //case TYPES.CLEAR_CART: return {...products, cart:[]}
         
-       // case TYPES.SET_DATA: return { products:payload.map(e=>e), cart:[]}//First loand and clear de cart.
+       // case TYPES.SET_DATA: return { products:payload.map(e=>e), cart:[]}//First load and clear de cart.
         case TYPES.SET_DATA: return { products:payload, cart:[]}//First loand and clear de cart.
         
 
@@ -44,7 +44,6 @@ export function shoppingReducer({products, cart}, {type, payload}){
             return {...{products, cart}, products:[...products, payload]}
             
         }
-
 
         case TYPES.NOT_DATA: { 
            //console.log(`Error:${payload}`);

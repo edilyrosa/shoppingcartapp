@@ -68,10 +68,21 @@
     },
     {
       "id": 8,
-      "name": "ropa",
+      "name": "ropas",
       "category": "clothes",
       "description": "cute",
       "price": "100.01",
+      "img": {
+        "src": "https://placekitten.com/80/60",
+        "alt": "cat"
+      }
+    },
+    {
+      "id": 9,
+      "name": "PEPSI",
+      "category": "food",
+      "description": "Product 04 description",
+      "price": "12",
       "img": {
         "src": "https://placekitten.com/80/60",
         "alt": "cat"
